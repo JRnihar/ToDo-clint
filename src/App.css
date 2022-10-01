@@ -1,0 +1,59 @@
+.form{
+border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 10px 10px 17px #b5b5b5,
+    -10px -10px 17px #ffffff;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.title span {
+  color: #0E2431;
+  font-size: 30px;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.title span::before,
+.title span::after {
+  content: '';
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  /* background: #4070f4; */
+  background: rgb(6 182 212);
+  ;
+  left: 0;
+  bottom: 0;
+}
+
+.title span::after {
+  bottom: -6px;
+  width: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media only screen and (max-width: 576px) {
+  .title span {
+    font-size: 25px
+  }
+
+  .icon {
+    margin-left: -50px;
+  }
+
+  .customBg {
+    width: 290px;
+    margin-left: 0px;
+  }
+}
+.action{
+  cursor: pointer;
+}
