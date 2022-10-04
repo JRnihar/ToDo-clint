@@ -5,7 +5,10 @@ import { object, string } from "yup";
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { GrUpdate } from 'react-icons/gr';
+import useData from '../../Hooks/useData';
 const EditTask = () => {
+    const [lists, setList] = useData()
+    // console.log(lists);
     const navigate = useNavigate()
     const { id } = useParams()
     const [loading, setLoading] = useState(false);
@@ -14,7 +17,7 @@ const EditTask = () => {
             title: values.title,
             description: values.description,
         };
-        const url = `http://localhost:5000/list/${id}`
+        const url = `https://to-do-app-server2.onrender.com/list/${id}`
         console.log(url);
         fetch(url, {
             method: 'PUT',
@@ -30,7 +33,7 @@ const EditTask = () => {
                     'You update your list!',
                     'success'
                 )
-                console.log(data);
+                // console.log(data);
                 navigate('/todoData')
             })
     }
@@ -65,6 +68,7 @@ const EditTask = () => {
 
                                 <div className="form-group mt-5">
                                     <Field
+                                        
                                         type="text"
                                         id='name'
                                         name="title"

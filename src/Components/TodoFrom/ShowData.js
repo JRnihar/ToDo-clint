@@ -19,7 +19,7 @@ const ShowData = ({ list }) => {
     
 
     const handleDelete = id => {
-        const url = `http://localhost:5000/list/${id}`;
+        const url = `https://to-do-app-server2.onrender.com/list/${id}`;
         fetch(url, {
             method: 'DELETE'
         })

@@ -14,7 +14,7 @@ const TodoFrom = () => {
             title: values.title,
             description: values.description,
         };
-        const url = `http://localhost:5000/list`;
+        const url = `https://to-do-app-server2.onrender.com/list`;
         fetch(url, {
             method: 'POST',
             headers: {
