@@ -49,6 +49,7 @@ const ToData = () => {
                                     <tr>
                                         <th scope="col"><h4>Task Title</h4></th>
                                         <th scope="col"><h4> Description</h4></th>
+                                        <th scope="col"><h4> Status</h4></th>
                                         <th scope="col"><h4>Action</h4></th>
                                     </tr>
                                 </thead>

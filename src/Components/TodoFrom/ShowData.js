@@ -46,6 +46,7 @@ const ShowData = ({ list, searchData }) => {
             <td><h5>{items?.title ? items?.title : list?.title}</h5></td>
             <td> <h5>{
                 items?.description ? items?.description : list?.description}</h5></td>
+            <td> <h5>Pending</h5></td>
             <td><FaRegEdit className='fs-2 me-4 action' variant="primary" onClick={handleShow2} />
                 <RiDeleteBin6Fill className='fs-2 text-danger action' data-bs-toggle="modal" data-bs-target="#exampleModal" variant="primary" onClick={handleShow} /></td>
 
