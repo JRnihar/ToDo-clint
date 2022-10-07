@@ -29,7 +29,7 @@ const TodoFrom = () => {
                     'You Add your list!',
                     'success'
                 )
-                console.log(result);
+              
                 navigate('/todoData')
             })
     };
@@ -67,7 +67,7 @@ const TodoFrom = () => {
                                     id='name'
                                     name="title"
                                     placeholder="Task Title"
-                                    className={`form-control ${touched.title && errors.title
+                                    className={`form-control  ${touched.title && errors.title
                                         ? "is-invalid"
                                         : ""
                                         }`}

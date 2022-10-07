@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 
 
 const ShowData = ({ list, searchData }) => {
-    // console.log(searchData);
+    
 
     const { _id } = list
     const [lists, setList] = useData()
@@ -27,7 +27,7 @@ const ShowData = ({ list, searchData }) => {
         searchData?.list?.map(item => setItem(item))
     }, [searchData?.list])
 
-    // console.log(items);
+
 
     const handleDelete = id => {
         const url = `https://to-do-app-server2.onrender.com/list/${id}`;
@@ -36,7 +36,7 @@ const ShowData = ({ list, searchData }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                
                 const remaining = lists.filter(list => list._id !== id);
                 setList(remaining);
             })

@@ -8,7 +8,7 @@ import { GrUpdate } from 'react-icons/gr';
 import useData from '../../Hooks/useData';
 const EditTask = () => {
     const [lists, setList] = useData()
-    // console.log(lists);
+
     const navigate = useNavigate()
     const { id } = useParams()
     const [loading, setLoading] = useState(false);
@@ -18,7 +18,7 @@ const EditTask = () => {
             description: values.description,
         };
         const url = `https://to-do-app-server2.onrender.com/list/${id}`
-        console.log(url);
+        
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -33,7 +33,8 @@ const EditTask = () => {
                     'You update your list!',
                     'success'
                 )
-                // console.log(data);
+                setList(data)
+               
                 navigate('/todoData')
             })
     }
@@ -46,6 +47,7 @@ const EditTask = () => {
             .required("Description  is required"),
 
     });
+    
     return (
         <div>
             <div className=' d-flex align-items-center justify-content-center flex-column h-100 mt-5'>
@@ -55,7 +57,7 @@ const EditTask = () => {
                         <div className="title"><span>Update Your Task Please !!</span></div>
                     </div>
                     <Formik
-                        initialValues={{ title: "", description: "" }}
+                        // initialValues={{ title: "", description: "" }}
                         validationSchema={TaskDetailsSchema}
                         onSubmit={(values, { setSubmitting, resetForm }) => {
                             setSubmitting(false);
@@ -68,7 +70,7 @@ const EditTask = () => {
 
                                 <div className="form-group mt-5">
                                     <Field
-                                        
+                                        value={lists.values.title}
                                         type="text"
                                         id='name'
                                         name="title"

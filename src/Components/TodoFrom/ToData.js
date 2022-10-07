@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import ShowData from './ShowData';
-
+import { FaSistrix } from 'react-icons/fa';
+const imagePerRow = 3;
 const ToData = () => {
     const [lists, setList] = useState([]);
     const [searchData, setSearchData] = useState('');
+    const [next, setNext] = useState(imagePerRow);
+    const handleMoreImage = () => {
+        setNext(next + imagePerRow);
+    };
 
     useEffect(() => {
         fetch('https://to-do-app-server2.onrender.com/list')
@@ -12,7 +17,7 @@ const ToData = () => {
                 if (searchData){
                     const filterdata = data.filter(list => list.title.toLocaleLowerCase().includes(searchData.toLocaleLowerCase()))
                     setList(filterdata)
-                    console.log(filterdata);
+                    
                 }else{
                     setList(data)
                 }
@@ -26,7 +31,7 @@ const ToData = () => {
         const name = e.target.search.value     
         setSearchData(name)
     };
-    console.log(searchData);
+    
 
 
 
@@ -36,8 +41,10 @@ const ToData = () => {
             <div className="title mt-5"><span>Your Total Task : {lists.length}</span></div>
          
             <form className='d-flex justify-content-center align-items-center' onSubmit={handleSearch}>
-                <input class="form-control w-25" placeholder='Search Your List' name='search' type="text" />
-                <input class="btn btn-primary" type="submit" value="submit"  />
+                <input class="form-control w-25" placeholder='Search By Title' name='search' type="text" />
+                <input class="btn btn-primary" type="submit" value="submit" />
+              
+
                 </form>
             <div className="container mt-3">
                 {
@@ -55,7 +62,7 @@ const ToData = () => {
                                 </thead>
                                 <tbody>
                                     {
-                                        lists.map(list =>
+                                        lists.slice(0, next)?.map(list =>
                                             <ShowData searchData={searchData} key={list._id} list={list}></ShowData>
 
                                         )
@@ -70,6 +77,16 @@ const ToData = () => {
 
                 }
             </div>
+            <div className='d-flex justify-content-center align-items-center'>
+                {next < lists?.length && (
+                    <button
+                        className="btn btn-primary"
+                        onClick={handleMoreImage}
+                    >
+                        Load more....
+                    </button>
+                )}
+          </div>
         </div>
     );
 };
