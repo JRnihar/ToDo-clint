@@ -43,7 +43,7 @@ const TodoFrom = () => {
 
     });
     return (
-        <div className=' d-flex align-items-center justify-content-center flex-column h-100 mt-5'>
+        <div className=' d-flex justify-content-center align-items-center h-100 mt-5 '>
             <div className='form p-5 '>
                 <div>
 

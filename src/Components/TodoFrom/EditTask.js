@@ -57,7 +57,7 @@ const EditTask = () => {
                         <div className="title"><span>Update Your Task Please !!</span></div>
                     </div>
                     <Formik
-                        // initialValues={{ title: "", description: "" }}
+                        initialValues={{ title: "", description: "" }}
                         validationSchema={TaskDetailsSchema}
                         onSubmit={(values, { setSubmitting, resetForm }) => {
                             setSubmitting(false);
@@ -70,7 +70,7 @@ const EditTask = () => {
 
                                 <div className="form-group mt-5">
                                     <Field
-                                        value={lists.values.title}
+                                       
                                         type="text"
                                         id='name'
                                         name="title"

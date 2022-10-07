@@ -18,6 +18,7 @@ const ShowData = ({ list, searchData }) => {
     const handleShow = () => setShow(true);
     const [show2, setShow2] = useState(false);
     const [items, setItem] = useState();
+  
     const handleClose2 = () => setShow2(false);
     const handleShow2 = () => setShow2(true);
 

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import ShowData from './ShowData';
 import { FaSistrix } from 'react-icons/fa';
-const imagePerRow = 3;
+const dataperRow = 3;
 const ToData = () => {
     const [lists, setList] = useState([]);
     const [searchData, setSearchData] = useState('');
-    const [next, setNext] = useState(imagePerRow);
-    const handleMoreImage = () => {
-        setNext(next + imagePerRow);
+    const [next, setNext] = useState(dataperRow);
+    const handleMoreData = () => {
+        setNext(next + dataperRow);
     };
 
     useEffect(() => {
@@ -51,24 +51,26 @@ const ToData = () => {
                     lists.length > 0
                         ?
                         <>
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th scope="col"><h4>Task Title</h4></th>
-                                        <th scope="col"><h4> Description</h4></th>
-                                        <th scope="col"><h4> Status</h4></th>
-                                        <th scope="col"><h4>Action</h4></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {
-                                        lists.slice(0, next)?.map(list =>
-                                            <ShowData searchData={searchData} key={list._id} list={list}></ShowData>
+                            <div className='table-responsive'>
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col"><h4>Task Title</h4></th>
+                                            <th scope="col"><h4> Description</h4></th>
+                                            <th scope="col"><h4> Status</h4></th>
+                                            <th scope="col"><h4>Action</h4></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {
+                                            lists.slice(0, next)?.map(list =>
+                                                <ShowData searchData={searchData} key={list._id} list={list}></ShowData>
 
-                                        )
-                                    }
-                                </tbody>
-                            </table>
+                                            )
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
                         </>
                         :
                         <div className='d-flex h-100 justify-content-center align-items-center'>
@@ -81,7 +83,7 @@ const ToData = () => {
                 {next < lists?.length && (
                     <button
                         className="btn btn-primary"
-                        onClick={handleMoreImage}
+                        onClick={handleMoreData}
                     >
                         Load more....
                     </button>
